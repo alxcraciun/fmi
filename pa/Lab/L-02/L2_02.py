@@ -1,0 +1,1 @@
+sir = input("Sirul este: ")
