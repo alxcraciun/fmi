@@ -11,16 +11,16 @@ I currently study at the University of Bucharest (Bachelor in Computer Science 2
 
 ### Semestrul 1
 
-| Sem | Disciplina                                                            | C    | S    | L    | P    | FE   | Credite |
-| --- | --------------------------------------------------------------------- | --   | --   | --   | --   | --   | ------- |
-| I   | [SA - Structuri Algebrice în Informatică](sa/)                        | 2    | 2    | \-   | \-   | E    | 4       |
-| I   | [CDI - Calcul Diferențial și Integral](cdi/)                          | 3    | 2    | \-   | \-   | E    | 6       |
-| I   | [LMC - Logică Matematică și Computațională](lmc/)                     | 2    | 2    | \-   | \-   | E    | 5       |
-| I   | [PA - Programarea Algoritmilor](pa/)                                  | 2    | 1    | 1    | \-   | E    | 5       |
-| I   | [ASC - Arhitectura Sistemelor de Calcul](asc/)                        | 2    | 1    | 1    | \-   | V    | 4       |
-| I   | [GCEA - Gândire Critică și Etică Academică în Informatică](gcea/)     | 2    | 1    | \-   | 1    | V    | 4       |
-| I   | Competențe de bază într-o limbă străină\                              | \-   | 1    | \-   | \-   | V    | 2       |
-| I   | Educație fizică\*                                                     | \-   | 1    | \-   | \-   | V    | 2       |
+| Sem | Disciplina                                                              | C    | S    | L    | P    | FE   | Credite |
+| --- | ---------------------------------------------------------------------   | --   | --   | --   | --   | --   | ------- |
+| I   | [SA - Structuri Algebrice în Informatică](./sa/)                        | 2    | 2    | \-   | \-   | E    | 4       |
+| I   | [CDI - Calcul Diferențial și Integral](./cdi/)                          | 3    | 2    | \-   | \-   | E    | 6       |
+| I   | [LMC - Logică Matematică și Computațională](./lmc/)                     | 2    | 2    | \-   | \-   | E    | 5       |
+| I   | [PA - Programarea Algoritmilor](./pa/)                                  | 2    | 1    | 1    | \-   | E    | 5       |
+| I   | [ASC - Arhitectura Sistemelor de Calcul](./asc/)                        | 2    | 1    | 1    | \-   | V    | 4       |
+| I   | [GCEA - Gândire Critică și Etică Academică în Informatică](./gcea/)     | 2    | 1    | \-   | 1    | V    | 4       |
+| I   | Competențe de bază într-o limbă străină\                                | \-   | 1    | \-   | \-   | V    | 2       |
+| I   | Educație fizică\*                                                       | \-   | 1    | \-   | \-   | V    | 2       |
 
 <br>
 
