@@ -1,6 +1,6 @@
 # Programare Algoritmică
 
-[Link pentru Prezenta](bit.ly/3VbecXY)
+[Link pentru Prezenta](https://bit.ly/3VbecXY)
 
 <br>
 
