@@ -1,5 +1,7 @@
 # Arhitectura Sistemelor de Calcul
 
+[https://cs.unibuc.ro/~crusu/asc/](https://cs.unibuc.ro/~crusu/asc/)
+
 ## Cursuri
 
 - [Curs 0x00: Informații administrative](Curs/Curs-0x00.pdf)

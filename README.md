@@ -2,7 +2,7 @@
 
 ## Content & About Me
 
-I currently study at the University of Bucharest (Bachelor in Computer Science 2022 - 2025). In this repository you can find homeworks, projects and resources regarding my courses. All resources from are public, but not intended for plagiarism. If you find your homework or project in here, I do not encourage you to copy it.
+I currently study at the [University of Bucharest](https://unibuc.ro/student-ub/) (Bachelor in Computer Science 2022 - 2025, [Faculty of Mathematics and Informatics](https://fmi.unibuc.ro/)). In this repository you can find homeworks, projects and resources regarding my courses. All resources from are public, but not intended for plagiarism. If you find your homework or project in here, I do not encourage you to copy it.
 
 ⭐｜If this repository helped you, please **star and share it** with your collegues. <br>
 🌐｜Also, let's connect on [Linkedin.](https://www.linkedin.com/in/alxcraciun/)
