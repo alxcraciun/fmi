@@ -1,5 +1,3 @@
-# 134_Craciun_AlexandruEmilian_1.s
-
 .data
 fs_scanf: .asciz "%ld"    
 fs_newline: .asciz "\n"
@@ -12,10 +10,13 @@ nr_legaturi_nod: .space 400
 aux: .space 4
 current_row: .space 4
 current_col: .space 4
+matrix: .space 40000
 
 lungime_drum: .space 4
 nod_sursa: .space 4
 nod_destinatie: .space 4
+matrix_aux: .space 40000
+matrix_res: .space 40000
 
 .text
 
@@ -148,57 +149,6 @@ call scanf
 addl $8, %esp
 popa
 
-# void *syscall(
-# %eax - SYS_mmap2, 
-# %ebx - addr, 
-# %ecx - mapping length,
-# %edx - prot, 
-# %esi - flags,
-# %edi - file descriptor
-# %esi - pgoffset
-
-
-alocare_dinamica: 
-
-# DYNAMICALLY ALLOCATE MEMORY FOR MATRIX
-# same algorithm will be used below to allocate memory for "Cerinta 2"
-
-pusha
-push %ebp
-
-call getpagesize   
-movl %eax, %ebp    # offset, multiple of the page size
-
-movl $4, %eax                   # size of an int 
-movl nr_noduri, %ecx      # nr_linii
-mul %ecx                        # 4 * nr_linii
-mul %ecx                        # 4 * nr_linii * nr_coloane
-
-movl %eax, %ecx     # MAPPING LENGTH
-movl $192, %eax     # syscall for mmap2
-movl $0, %ebx       # NULL ADRESS to randomly allocate map 
-movl $3, %edx       # PROT_READ | PROT_WRITE 
-movl $33, %esi      # MAP_SHARED | MAP_ANONYMOUS
-movl $-1, %edi      # set file descriptor to -1
-int $0x80           # system interrupt to call mmap2 
-
-pop %ebp
-movl %eax, 4(%ebp)    # store adress of matrix before restoring registers
-popa            
-
-# I used MAP_SHARED because I want matrix_mult to be able to access memory zone
-# I used MAP_ANONYMOUS so no other external programs can access the memory.
-
-# MAP_ANONYMOUS -- 0x20
-# MAP_SHARED -- 0x01
-
-# PROT_READ -- 0x01
-# PROT_WRITE -- 0x10
-
-# I set file descriptor to -1 because of MAP_ANONYMOUS since I don't want to save the memory to any file.
-# Also, my matrix has at most 1,6 kilobytes, so it will get into one pagesize (4 kilos usually)
-
-
 # Citire numar legaturi
 lea nr_legaturi_nod, %esi
 movl $0, %ecx 
@@ -231,7 +181,7 @@ for_lines:
     # Verify and update current line 
     movl current_row, %ecx
     cmp nr_noduri, %ecx
-    je citire_cerinta_2
+    je exit_for_lines
 
     # Reset to keep track of columns
     movl $0, current_col    
@@ -256,7 +206,7 @@ for_lines:
         movl $0, %edx
         mull nr_noduri
         addl aux, %eax
-        movl 4(%ebp), %esi
+        lea matrix, %esi
         movl $1, (%esi, %eax, 4)
         lea nr_legaturi_nod, %esi
 
@@ -268,6 +218,63 @@ for_lines:
         jmp for_lines
 
 jmp for_lines
+exit_for_lines:
+
+movl cerinta, %ebx
+cmp $2, %ebx
+je citire_cerinta_2
+
+# Cerinta 1
+afisare_matrice:
+
+lea matrix, %esi
+movl $0, current_row
+movl $0, current_col
+
+for_lines2: 
+    movl current_row, %ecx 
+    cmp nr_noduri, %ecx 
+    je exit
+
+    # Reset to keep track of columns
+    movl $0, current_col
+
+    for_columns2:
+        movl current_col, %ecx
+        cmp nr_noduri, %ecx
+        je increase_row2
+
+        # matrix[row][column] = nr_noduri * row + column
+
+        movl current_row, %eax
+        movl $0, %edx
+        mull nr_noduri
+        add %ecx, %eax
+        lea matrix, %esi
+        movl (%esi, %eax, 4), %ebx
+        # ebx - elementul pe care vreau sa-l afisez
+
+        pushl %ebx
+        pushl $fs_printf1
+        call printf
+        addl $8, %esp
+
+        incl current_col
+    jmp for_columns2
+
+    increase_row2:
+        # Print an enter to separate lines
+        pushl $fs_newline
+        call printf
+        addl $4, %esp
+
+        incl current_row
+        jmp for_lines2
+jmp for_lines2
+# La final trimit direct catre exit
+
+
+# Cerinta 2
 citire_cerinta_2:
 
 # Citire lungime_drum
@@ -294,59 +301,6 @@ call scanf
 addl $8, %esp
 popa
 
-alocare_dinamica2: 
-
-# Matricea Auxiliara
-
-pusha
-push %ebp
-
-call getpagesize   
-movl %eax, %ebp    # offset, multiple of the page size
-
-movl $4, %eax                   # size of an int 
-movl nr_noduri, %ecx      # nr_linii
-mul %ecx                        # 4 * nr_linii
-mul %ecx                        # 4 * nr_linii * nr_coloane
-
-movl %eax, %ecx     # MAPPING LENGTH
-movl $192, %eax     # syscall for mmap2
-movl $0, %ebx       # NULL ADRESS to randomly allocate map 
-movl $3, %edx       # PROT_READ | PROT_WRITE 
-movl $33, %esi      # MAP_SHARED | MAP_ANONYMOUS
-movl $-1, %edi      # set file descriptor to -1
-int $0x80           # system interrupt to call mmap2 
-
-pop %ebp
-movl %eax, 8(%ebp)    # store adress of matrix before restoring registers
-popa
-
-
-# Matricea rezultat finala
-
-pusha
-push %ebp
-
-call getpagesize   
-movl %eax, %ebp    # offset, multiple of the page size
-
-movl $4, %eax           # size of an int 
-movl nr_noduri, %ecx    # nr_linii
-mul %ecx                # 4 * nr_linii
-mul %ecx                # 4 * nr_linii * nr_coloane
-
-movl %eax, %ecx     # MAPPING LENGTH
-movl $192, %eax     # syscall for mmap2
-movl $0, %ebx       # NULL ADRESS to randomly allocate map 
-movl $3, %edx       # PROT_READ | PROT_WRITE 
-movl $33, %esi      # MAP_SHARED | MAP_ANONYMOUS
-movl $-1, %edi      # set file descriptor to -1
-int $0x80           # system interrupt to call mmap2 
-
-pop %ebp
-movl %eax, 12(%ebp)    # store adress of matrix before restoring registers
-popa
-
 generare_matrice:
 
 # matrix_res[][] = matrix[][] ** lungime_drum
@@ -367,8 +321,8 @@ mull nr_noduri
 
 pusha 
 pushl %eax
-pushl 4(%ebp)
-pushl 8(%ebp)
+pushl $matrix
+pushl $matrix_aux
 call memcpy
 addl $12, %esp
 popa 
@@ -382,9 +336,9 @@ for_operatii:
 
     pusha
     pushl nr_noduri
-    pushl 12(%ebp)
-    pushl 4(%ebp)
-    pushl 8(%ebp)
+    pushl $matrix_res
+    pushl $matrix
+    pushl $matrix_aux
     call matrix_mult
     addl $16, %esp
     popa 
@@ -404,8 +358,8 @@ for_operatii:
 
     pusha 
     pushl %eax
-    pushl 12(%ebp)
-    pushl 8(%ebp)
+    pushl $matrix_res
+    pushl $matrix_aux
     call memcpy
     addl $12, %esp
     popa 
@@ -422,7 +376,7 @@ movl nod_destinatie, %ecx
 movl $0, %edx
 mull nr_noduri
 add %ecx, %eax
-movl 12(%ebp), %esi
+lea matrix_res, %esi
 movl (%esi, %eax, 4), %ebx
 
 pushl %ebx
