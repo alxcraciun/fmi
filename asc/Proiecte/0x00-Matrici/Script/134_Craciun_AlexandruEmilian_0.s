@@ -24,14 +24,22 @@ matrix_mult:
     pushl %ebp
     mov %esp, %ebp
 
-    # matrix_mult( * matrix1, * matrix2, * matrix_result, matrix_size)
-    #                ebp+8      ebp+12         ebp+16        ebp+20
+    # matrix_mult( * matrix1, * matrix2, * matrix_res, matrix_size)
+
+    # Stack Logic
+    #  20  --  matrix_size
+    #  16  --  matrix_res
+    #  12  --  matrix2
+    #  08  --  matrix1
+    #  04  --  main_ebp
+    # ebp  --  ret_adress
+    # -04  --  index_element_de_inmultit
+    # -08  --  column_index (of matrix_res)
+    # -12  --  line_index (of matrix_res)
+    # -16  --  sum_result to move to matrix_res
+
     mov 8(%ebp), %esi   
     mov 12(%ebp), %edi
-
-    # SUM() end result (%esp+0)
-    # matrix_res[%esp+4][%esp+8]
-    # indexul elementelor de inmultit (var) (%esp+12)
 
     pushl $0    
     pushl $0
@@ -39,40 +47,40 @@ matrix_mult:
     subl $4, %esp
 
     for1_lines:
-        mov 4(%esp), %eax
+        mov -12(%ebp), %eax
         cmp 20(%ebp), %eax
         je exit_for1_lines
 
-        movl $0, 8(%esp)
+        movl $0, -8(%ebp)
         for1_columns:
-            mov 8(%esp), %eax
+            mov -8(%ebp), %eax
             cmp 20(%ebp), %eax
             je next_row
 
             # Push SUM() end result
 
-            movl $0, 0(%esp)
-            movl $0, 12(%esp)
+            movl $0, -16(%ebp)
+            movl $0, -4(%ebp)
             for1_multiplier:
-                mov 12(%esp), %eax
+                mov -4(%ebp), %eax
                 cmp 20(%ebp), %eax
                 je next_column
 
                 # matrix_res[%esp+4][%esp+8] = SUM(matrix1[%esp+4][var] * matrix2[var][%esp+8])
                 # var -- takes values from 0 to matrix_size (var = %esp+20)
 
-                movl 4(%esp), %eax
+                movl -12(%ebp), %eax
                 xor %edx, %edx
                 movl 20(%ebp), %ecx
                 mul %ecx
-                add 12(%esp), %eax
+                add -4(%ebp), %eax
                 movl (%esi, %eax, 4), %ebx
 
-                movl 12(%esp), %eax
+                movl -4(%ebp), %eax
                 xor %edx, %edx
                 movl 20(%ebp), %ecx
                 mul %ecx
-                add 8(%esp), %eax
+                add -8(%ebp), %eax
                 movl (%edi, %eax, 4), %eax
 
                 xor %edx, %edx
@@ -83,34 +91,34 @@ matrix_mult:
                 addl %ebx, %eax
                 push %eax
 
-                movl 12(%esp), %ecx
+                movl -4(%ebp), %ecx
                 inc %ecx
-                movl %ecx, 12(%esp)
+                movl %ecx, -4(%ebp)
 
                 jmp for1_multiplier
 
             next_column:
             
             # Get the final SUM results
-            movl 4(%esp), %eax
+            movl -12(%ebp), %eax
             movl $0, %edx
 
             mov 20(%ebp), %ecx
             mul %ecx
-            add 8(%esp), %eax
+            add -8(%ebp), %eax
 
             # Move final SUM results to matrix_res[][]
             mov 16(%ebp), %edi
-            movl 0(%esp), %ebx
+            movl -16(%ebp), %ebx
             movl %ebx, (%edi, %eax, 4)
 
             # Restore %edi on matrix
             mov 12(%ebp), %edi
 
             # Increment Column
-            movl 8(%esp), %ecx
+            movl -8(%ebp), %ecx
             inc %ecx
-            movl %ecx, 8(%esp)
+            movl %ecx, -8(%ebp)
 
             jmp for1_columns
 
@@ -118,15 +126,17 @@ matrix_mult:
 
         next_row:
 
-        movl 4(%esp), %ecx
+        movl -12(%ebp), %ecx
         inc %ecx
-        movl %ecx, 4(%esp)
+        movl %ecx, -12(%ebp)
 
         jmp for1_lines
 
     jmp for1_lines
+
     exit_for1_lines:
     addl $20, %esp
+
 ret
 
 .global main
@@ -259,6 +269,12 @@ for_lines2:
         call printf
         addl $8, %esp
 
+        pusha
+        pushl $0 
+        call fflush
+        addl $4, %esp
+        popa
+
         incl current_col
     jmp for_columns2
 
@@ -267,6 +283,12 @@ for_lines2:
         pushl $fs_newline
         call printf
         addl $4, %esp
+
+        pusha
+        pushl $0 
+        call fflush
+        addl $4, %esp
+        popa
 
         incl current_row
         jmp for_lines2
@@ -383,6 +405,12 @@ pushl %ebx
 pushl $fs_printf2
 call printf
 addl $8, %esp
+
+pusha
+pushl $0 
+call fflush
+addl $4, %esp
+popa
 
 exit: 
 mov $1, %eax
