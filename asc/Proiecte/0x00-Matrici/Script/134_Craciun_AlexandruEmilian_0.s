@@ -33,7 +33,7 @@ matrix_mult:
     #  08  --  matrix1
     #  04  --  main_ebp
     # ebp  --  ret_adress
-    # -04  --  index_element_de_inmultit
+    # -04  --  var_index_element_de_inmultit 
     # -08  --  column_index (of matrix_res)
     # -12  --  line_index (of matrix_res)
     # -16  --  sum_result to move to matrix_res
@@ -57,18 +57,19 @@ matrix_mult:
             cmp 20(%ebp), %eax
             je next_row
 
-            # Push SUM() end result
-
+            # Reset end-result and var_index
             movl $0, -16(%ebp)
             movl $0, -4(%ebp)
+
             for1_multiplier:
                 mov -4(%ebp), %eax
                 cmp 20(%ebp), %eax
                 je next_column
 
-                # matrix_res[%esp+4][%esp+8] = SUM(matrix1[%esp+4][var] * matrix2[var][%esp+8])
-                # var -- takes values from 0 to matrix_size (var = %esp+20)
+                # matrix_res[line_index][column_index] = SUM(matrix1[line_index][var] * matrix2[var][column_index])
+                # var_index -- takes values from 0 to matrix_size-1
 
+                # matrix1[line_index][var]
                 movl -12(%ebp), %eax
                 xor %edx, %edx
                 movl 20(%ebp), %ecx
@@ -76,6 +77,7 @@ matrix_mult:
                 add -4(%ebp), %eax
                 movl (%esi, %eax, 4), %ebx
 
+                # matrix2[var][column_index]
                 movl -4(%ebp), %eax
                 xor %edx, %edx
                 movl 20(%ebp), %ecx
@@ -86,7 +88,7 @@ matrix_mult:
                 xor %edx, %edx
                 mul %ebx
 
-                # Pop, update and store SUM
+                # Pop, add to the sum_result and backup again
                 pop %ebx
                 addl %ebx, %eax
                 push %eax
@@ -99,7 +101,7 @@ matrix_mult:
 
             next_column:
             
-            # Get the final SUM results
+            # Get the final sum_result
             movl -12(%ebp), %eax
             movl $0, %edx
 
@@ -107,12 +109,12 @@ matrix_mult:
             mul %ecx
             add -8(%ebp), %eax
 
-            # Move final SUM results to matrix_res[][]
+            # Move final sum_result to matrix_res[][]
             mov 16(%ebp), %edi
             movl -16(%ebp), %ebx
             movl %ebx, (%edi, %eax, 4)
 
-            # Restore %edi on matrix
+            # Restore %edi on matrix2 as it was used 3 lines before
             mov 12(%ebp), %edi
 
             # Increment Column
@@ -269,12 +271,6 @@ for_lines2:
         call printf
         addl $8, %esp
 
-        pusha
-        pushl $0 
-        call fflush
-        addl $4, %esp
-        popa
-
         incl current_col
     jmp for_columns2
 
@@ -284,15 +280,10 @@ for_lines2:
         call printf
         addl $4, %esp
 
-        pusha
-        pushl $0 
-        call fflush
-        addl $4, %esp
-        popa
-
         incl current_row
         jmp for_lines2
 jmp for_lines2
+
 # La final trimit direct catre exit
 
 
@@ -406,13 +397,14 @@ pushl $fs_printf2
 call printf
 addl $8, %esp
 
+exit: 
+
 pusha
 pushl $0 
 call fflush
 addl $4, %esp
 popa
 
-exit: 
 mov $1, %eax
 xor %ebx, %ebx
 int $0x80
