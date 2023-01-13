@@ -2,20 +2,7 @@
 6. Se citește un număr natural n.
 a) Să se afișeze cel mai mare număr care se poate obține cu cifrele lui n
 b) Să se afișeze cel mai mic număr care se poate obține cu cifrele lui n
-De exemplu, pentru nn = 812383 trebuie afișate numerele 883321 și 123388.
-
-'''
-
-''' Varianta cu siruri de caractere
-
-n = input('n = ')
-
-if int(n) > 10:
-    maxim = ''.join(sorted(n, reverse = True)) 
-    minim = maxim[::-1].lstrip('0')                                       # daca zero-urile pot fi puse primele merge asta
-    print(f'Cel mai mic numar: {minim} \nCel mai mare numar: {maxim}')
-else: 
-    print('Cel mai mic numar: {n} \nCel mai mare numar: {n}')
+De exemplu, pentru n = 812383 trebuie afișate numerele 883321 și 123388.
 
 '''
 
@@ -26,11 +13,14 @@ if n < 10:
     raise SystemExit
 
 zero_counter = 0
-minim = 10    # il folosesc initial sa calculez cifra minima
+minim = 10
 maxim = 0
-maxim_len = 0
+lungime = 0
 
-aux = n             # numar cate 0-uri sunt in numar
+# Aflu cate zero-uri sunt in numar = zero_counter
+# Aflu care este cea mai mica cifra (fara zero) = minim
+
+aux = n            
 while aux > 0:
     if aux % 10 == 0:
         zero_counter += 1
@@ -38,6 +28,7 @@ while aux > 0:
         minim = aux % 10
     aux //= 10
 
+# Adaug cifra cea mai mica + zero-urile 
 for _ in range(zero_counter):
     minim *= 10
 
@@ -45,12 +36,13 @@ for cf in range(1, 10):
     aux = n
     while aux > 0:
         if aux % 10 == cf:
-            maxim = 10**maxim_len * cf + maxim
-            if maxim_len != 0:                   # sa nu pun cea mai mica cifra de 2 ori in min
+            maxim = 10 ** lungime * cf + maxim
+            if lungime != 0:                   # sa nu pun cea mai mica cifra de 2 ori in min
                 minim = minim * 10 + cf
-            maxim_len += 1
+            lungime += 1
         aux //= 10
 
+# Adaug zero-urile la finalul numarului maxim
 for _ in range(zero_counter):
     maxim *= 10
 

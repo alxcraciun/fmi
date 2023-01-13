@@ -1,11 +1,11 @@
-n = int(input("n = "))
-x = float(input())
+n = int(input("Zile: "))
+x = float(input(f"Cursul din ziua 1 este: "))
 
 maxim = 0
 ziua_maxim = 1
 
 for ziua in range(2, n+1):
-    y = float(input())
+    y = float(input(f"Cursul din ziua {ziua} este: "))
     if (y-x) > maxim:
         maxim = y - x
         ziua_maxim = ziua - 1
