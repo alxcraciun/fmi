@@ -14,7 +14,7 @@
 2. Perceputi drept competenti
 3. Relatie pozitiv-afectiva
 4. Similaritatea cu mentee-ul
-5. Adesea modele Masculine
+5. Adesea modele masculine
 
 > Tu nu poti alege daca esti sau nu un model.
 > Mentee-ul te va alege

@@ -1,4 +1,4 @@
-# a)
+# a) Decodarea sirului
 
 sir = input('Textul codat: ')
 sir_decodat = ''
@@ -20,7 +20,8 @@ while i < len(sir):
 else:
     print(sir_decodat, end = '\n\n')
 
-# b)
+
+# b) Codificarea unui sir
 
 sir2 = input("Textul normal: ")
 sir2_codat = ''
@@ -36,7 +37,8 @@ for i in range(1, len(sir2)):
         char = sir2[i]
         counter = 1
 
-sir2_codat += (str(counter) + char)    # iau si ultima parte ramasa
+# Pentru a nu rata ultima parte ramasa:
+sir2_codat += (str(counter) + char)
 
 print(sir2_codat)
 
