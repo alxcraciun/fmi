@@ -24,16 +24,16 @@ I don't host any of the PDFs in this Github Repo, but you can access this [Googl
 
 <br>
 
-| Sem | Disciplina                                                | C   | S   | L   | P   | FE  | Credite |
-| --- | --------------------------------------------------------- | --- | --- | --- | --- | --- | ------- |
-| II  | [GAL - Geometrie si Algebra Liniara](./sem2/gal/)         | 2   | 2   | \-  | \-  | E   | 4       |
-| II  | [BD - Baze de Date](./sem2/bd/)                           | 2   | \-  | 2   | \-  | E   | 5       |
-| II  | [SD - Structuri de Date](./sem2/sd/)                      | 2   | 1   | 1   | \-  | E   | 5       |
-| II  | [LFA - Limbaje Formale si Automate](./sem2/lfa/)          | 2   | 1   | 1   | \-  | E   | 4       |
-| II  | [PO - Programare Orientata pe Obiecte](./sem2/po/)        | 2   | 1   | 2   | \-  | V   | 4       |
-| II  | [TW - Tehnici Web](./sem2/tw/)                            | 2   | \-  | 1   | 1   | V   | 6       |
-| II  | Competențe de bază într-o limbă străină                   | \-  | 1   | \-  | \-  | V   | 2       |
-| II  | Educație fizică                                           | \-  | 1   | \-  | \-  | V   | 2       |
+| Sem | Disciplina                                           | C   | S   | L   | P   | FE  | Credite |
+| --- | ---------------------------------------------------- | --- | --- | --- | --- | --- | ------- |
+| II  | [GAL - Geometrie si Algebra Liniara](./sem2/gal/)    | 2   | 2   | \-  | \-  | E   | 4       |
+| II  | [BD - Baze de Date](./sem2/bd/)                      | 2   | \-  | 2   | \-  | E   | 5       |
+| II  | [SD - Structuri de Date](./sem2/sd/)                 | 2   | 1   | 1   | \-  | E   | 5       |
+| II  | [LFA - Limbaje Formale si Automate](./sem2/lfa/)     | 2   | 1   | 1   | \-  | E   | 4       |
+| II  | [POO - Programare Orientata pe Obiecte](./sem2/poo/) | 2   | 1   | 2   | \-  | V   | 4       |
+| II  | [TW - Tehnici Web](./sem2/tw/)                       | 2   | \-  | 1   | 1   | V   | 6       |
+| II  | Competențe de bază într-o limbă străină              | \-  | 1   | \-  | \-  | V   | 2       |
+| II  | Educație fizică                                      | \-  | 1   | \-  | \-  | V   | 2       |
 
 <br>
 
