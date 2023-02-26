@@ -26,7 +26,7 @@ I don't host any of the PDFs in this Github Repo, but you can access this [Googl
 
 | Sem | Disciplina                                           | C   | S   | L   | P   | FE  | Credite |
 | --- | ---------------------------------------------------- | --- | --- | --- | --- | --- | ------- |
-| II  | [GA - Geometrie si Algebra Liniara](./sem2/gal/)    | 2   | 2   | \-  | \-  | E   | 4       |
+| II  | [GAL - Geometrie si Algebra Liniara](./sem2/ga/)     | 2   | 2   | \-  | \-  | E   | 4       |
 | II  | [BD - Baze de Date](./sem2/bd/)                      | 2   | \-  | 2   | \-  | E   | 5       |
 | II  | [SD - Structuri de Date](./sem2/sd/)                 | 2   | 1   | 1   | \-  | E   | 5       |
 | II  | [LFA - Limbaje Formale si Automate](./sem2/lfa/)     | 2   | 1   | 1   | \-  | E   | 4       |
@@ -48,4 +48,5 @@ I don't host any of the PDFs in this Github Repo, but you can access this [Googl
 <br>
 
 ## Optionale
-- [Modul Psihopedagogic](/sem1/psiho/)
+- [Modul Psihopedagogic - Sem 1](/sem1/psiho/)
+- [Modul Psihopedagogic - Sem 2](/sem2/psiho/)
