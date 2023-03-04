@@ -7,7 +7,7 @@ I currently study at the [University of Bucharest](https://unibuc.ro/student-ub/
 I don't host any of the PDFs in this Github Repo, but you can access this [Google Drive](https://drive.google.com/drive/folders/1dw2z7aSJL5rQVA82JrRr7rlXQqxlAQGW?usp=sharing).
 
 ⭐｜If this repository helped you, please **star and share it** with your collegues. <br>
-🌐｜Also, let's connect on [Linkedin.](https://www.linkedin.com/in/alxcraciun/)
+🌐｜Also, let's connect on [Linkedin.](https://www.linkedin.com/in/alxcraciun/) 
 
 ## Anul 1
 
