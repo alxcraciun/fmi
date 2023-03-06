@@ -1,6 +1,7 @@
 # Remove all PDFs, I will add the course support at the final commit
 .idea
 .vscode
+*.odt
 *.pdf
 *.doc
 *.docx
