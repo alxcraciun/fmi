@@ -1,0 +1,24 @@
+body {
+  overflow: hidden;
+  margin: 0px;
+}
+
+#mare {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+  border-right: 45vw solid white;
+  border-bottom: 10vh solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mic {
+  box-sizing: border-box;
+  height: 35vw;
+  width: 35vw;
+  background-color: yellow;
+  border: 5vw solid black;
+}
