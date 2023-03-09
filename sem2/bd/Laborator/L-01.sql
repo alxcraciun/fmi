@@ -7,17 +7,10 @@
 */ 
 
 /*
-Name: AlexCraciun
-User: grupa34
-Password: grupa34
 
-> SavePassword
+Apostroafele simple la string
+Ghilimelele DOAR la AS
 
-Hostname: 193.226.51.46
-Seed: o11g
-
-> Test 
-> Connect
 */
 
 describe employees;
@@ -47,10 +40,6 @@ select employee_id, salary as sal
 from employees
 where salary > 10000
 order by sal desc; -- ordoneaza dupa coloana 2 (salariu)
-
-
--- Apostroafele simple la string
--- Ghilimelele DOAR la AS
 
 select employee_id, first_name || ' ' || last_name, job_id, hire_date
 from employees;
