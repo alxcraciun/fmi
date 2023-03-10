@@ -2,7 +2,6 @@
 .idea
 .vscode
 *.odt
-*.pdf
 *.doc
 *.docx
 *.txt
@@ -11,3 +10,4 @@
 *.jpeg
 *.zip
 *.exe
+Book*.pdf
