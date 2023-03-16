@@ -1,36 +1,89 @@
 html {
-	font-size:12px;
+	font-size: 12px;
 }
 
 .buton {
-	border:2px brown ridge;
+	border: 2px brown ridge;
 	background: #ffc37a;
-	font-weight:bold;
-	color:white;
-	text-shadow:0px 0px 4px black,0px 0px 3px black,0px 0px 2px black,0px 0px 2px black;
-	box-shadow:0px -3px 2px grey;
-	height:2em;
-	line-height:2em;
-	width:120px;
-	text-align:center;
-	display:inline-block;
-	font-size:0.9em;
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0px 0px 4px black, 0px 0px 3px black, 0px 0px 2px black, 0px 0px 2px black;
+	box-shadow: 0px -3px 2px grey;
+	height: 2em;
+	line-height: 2em;
+	width: 120px;
+	text-align: center;
+	display: inline-block;
+	font-size: 0.9em;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 
-.buton:hover{
-	background:orange;
+.buton:hover {
+	background: orange;
 }
 
-#coloane > section{
+#coloane>section {
 	border: 1px solid green;
-	padding:2px;
-	min-width:100px;
+	padding: 2px;
+	min-width: 100px;
 }
 
-div#coloane{
+div#coloane {
 	border-top: 3px inset #BBB;
 }
 
 /* rezolvare */
+
+#coloane {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#coloane>section {
+	flex-basis: 200px;
+	flex-grow: 1;
+}
+
+#ord_dr_s:hover~#coloane {
+	flex-direction: row-reverse;
+}
+
+#ord_3124:hover~#coloane section:nth-child(1) {
+	flex-basis: 0;
+	order: 2;
+}
+
+#ord_3124:hover~#coloane section:nth-child(2) {
+	order: 3;
+	flex-basis: 0;
+}
+
+#ord_3124:hover~#coloane section:nth-child(3) {
+	order: 1;
+	flex-basis: 0;
+}
+
+#ord_3124:hover~#coloane section:nth-child(4) {
+	order: 4;
+	flex-grow: 3;
+	flex-basis: 0;
+}
+
+#imagini {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+#img_invers:hover~#coloane #s_imag #imagini {
+	flex-direction: column-reverse;
+}
+
+#img_invers:hover~#coloane #s_imag #imagini img {
+	align-self: flex-end;
+}
+
+#img_invers:hover~#coloane #s_imag #imagini h3 {
+	order: 1;
+}

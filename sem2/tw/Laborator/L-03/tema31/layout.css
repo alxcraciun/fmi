@@ -39,7 +39,7 @@ nav ul {
 }
 
 .meniu li:hover .submeniu {
-    padding: 5px;
+    padding: 0px 5px;
     background-color: #f0f8ff;
     border: 1px solid #ffffff;
     display: block;
@@ -47,7 +47,7 @@ nav ul {
     z-index: 1;
 }
 
-.submeniu li{
+.submeniu li {
     margin: 3px 0px;
 }
 
@@ -57,13 +57,100 @@ nav ul {
 }
 
 #continut {
-    margin: 0px 2.5vw;
+    margin: 0px min(3vw, 40px);
+    height: auto;
+    padding: 1vw 0px 0px 0px;
     background-color: white;
+}
+
+#continut article {
+    border-style: ridge;
+    border-color: blue;
+    border-width: 1px;
+    width: 40%;
+    text-align: center;
+}
+
+#continut article h3 {
+    margin: 1em 0px;
+}
+
+#continut article:first-child {
+    margin: 0px 0px 20px 4vw;
+    padding: 0px 1% 1% 1%;
+    float: left;
+}
+
+#continut article:first-child img {
+    float: left;
+    height: auto;
+    max-height: 200px;
+    margin: 0px 5px 0px 0px;
+    border: red solid 5px;
+}
+
+#continut article:nth-child(2) {
+    margin: 0px 4vw 20px 0px;
+    padding: 0px 1% 1% 1%;
+    float: right;
+}
+
+#continut article:nth-child(2) img {
+    float: right;
+    height: auto;
+    max-height: 200px;
+    margin: 0px 0px 0px 5px;
+    border: red solid 5px;
+}
+
+#continut article:last-child {
+    clear: both;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    padding: 1% 4%;
+    width: 45%;
+}
+
+#continut article:last-child h3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    margin: auto;
+    color: #ffffff;
+    z-index: 1;
+    font-size: 60px;
+}
+
+#container-poze {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+#container-poze img:first-child {
+    border: red solid 5px;
+}
+
+#container-poze img:nth-child(2) {
+    border: blue solid 5px;
+}
+
+#container-poze img:nth-child(3) {
+    border: yellow solid 5px;
 }
 
 footer {
     display: flex;
-    align-content: center;
+    justify-content: center;
     height: 60px;
     background-color: #6cceeb;
+}
+
+footer h3 {
+    margin: 0px;
 }
