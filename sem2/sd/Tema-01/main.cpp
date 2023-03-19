@@ -2,70 +2,119 @@
 #include <fstream>
 #include <vector>
 #include <chrono>
+#include <cstdlib>
+#include <algorithm>
+
 using namespace std;
 
-ifstream in("date.in");
-ofstream out("date.out");
+ifstream in("test.txt");
 
-int v[10000001]; 
-
-void mergesort();
 void radixsort();
-void shellsort();
-void timsort();
-void introsort();
-void insertionsort();   //  O(n^2) time
-void countsort();       //  O(n + max_val) time
 
+void shellsort();
+
+void timsort();
+
+void introsort();
+
+void insertionsort(); //  O(n^2) time
+
+void countsort(); //  O(n + max_val) time
+
+vector<int> vect{18, 8, 4, 34, 10, 5, 2}, vect_sorted, vect_dummy;
 
 int main()
 {
-    auto start = chrono::steady_clock::now();
+  cout << '\n';
+  int size = sizeof(vect) / sizeof(vect[0]);
 
-    for (int i = 1; i <= 1000; i++)
-        int a;
+  vect_sorted = vect;
+  vect_dummy = vect;
 
-    auto end = chrono::steady_clock::now();
+  auto start = chrono::high_resolution_clock::now();
+  sort(vect_sorted.begin(), vect_sorted.end());
+  auto finish = chrono::high_resolution_clock::now();
+  auto duration = chrono::duration_cast<chrono::microseconds>(finish - start);
+  cout << "STL IntroSort:\n" << duration.count() << " microseconds\n\n";
 
-    chrono::duration<double> timer = start - end;
+  auto start1 = chrono::high_resolution_clock::now();
+  sort(vect_dummy.begin(), vect_dummy.end());
+  auto finish1 = chrono::high_resolution_clock::now();
+  auto duration1 = chrono::duration_cast<chrono::microseconds>(finish1 - start1);
+  if (vect_sorted == vect_dummy)
+    cout << "MergeSort:\n" << duration.count() << " microseconds\n\n";
+  else
+    cout << "MergeSort failed\n\n";
 
-    cout << timer.count();
-
-    return 0;
+  cout << '\n';
+  return 0;
 }
 
-void mergesort()
+void merge(vector<int> &vect, int low, int mid, int high)
 {
+  vector<int> aux_vect;
+  int i = low;
+  int j = mid + 1;
 
+  while (i <= mid && j <= high)
+    if (vect[i] < vect[j])
+    {
+      aux_vect.push_back(vect[i]);
+      i += 1;
+    }
+    else
+    {
+      aux_vect.push_back(vect[j]);
+      j += 1;
+    }
+
+  while (i <= mid)
+  {
+    aux_vect.push_back(vect[i]);
+    i += 1;
+  }
+
+  while (j <= high)
+  {
+    aux_vect.push_back(vect[j]);
+    j += 1;
+  }
+
+  for (int i = 0; i < aux_vect.size(); i++)
+    vect[low + i] = aux_vect[i];
+}
+
+void mergesort(vector<int> &vect, int low, int high)
+{
+  int mid = (low + high) / 2;
+  if (low < high)
+  {
+    mergesort(vect, low, mid);
+    mergesort(vect, mid + 1, high);
+    merge(vect, low, mid, high);
+  }
 }
 
 void radixsort()
 {
-
 }
 
 void shellsort()
 {
-
 }
-
 
 void timsort()
 {
-
 }
 
 void introsort()
 {
-
 }
 
 void insertionsort()
 {
-
 }
 
 void countsort()
 {
-
-}       
+}
