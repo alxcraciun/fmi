@@ -9,7 +9,8 @@ using namespace std;
 
 ifstream in("test.txt");
 
-void radixsort();
+void counting(vector<int> &vect, int size, int exp, const int BASE);
+void radixsort(vector<int> &vect, int size, const int BASE);
 
 void merge(vector<int> &vect, int low, int mid, int high); // utility function
 void mergesort(vector<int> &vect, int low, int high);      // O(nlogn) time
@@ -80,6 +81,16 @@ int main()
     else
         cout << "TimSort failed\n\n";
 
+    vect_dummy = vect;
+    auto start5 = chrono::high_resolution_clock::now();
+    radixsort(vect_dummy, vect_dummy.size(), 10);
+    auto finish5 = chrono::high_resolution_clock::now();
+    auto duration5 = chrono::duration_cast<chrono::microseconds>(finish5 - start5);
+    if (vect_sorted == vect_dummy)
+        cout << "RadixSort:\n" << duration.count() << " microseconds\n\n";
+    else
+        cout << "RadixSort failed\n\n";
+
     return 0;
 }
 
@@ -128,8 +139,36 @@ void mergesort(vector<int> &vect, int low, int high)
     }
 }
 
-void radixsort()
+void counting(vector<int> &vect, int size, int exp, const int BASE)
 {
+    vector<int> aux(size), counter(BASE, 0);
+
+    // for each digit calculate occurence number
+    for (int i = 0; i < size; i++)
+        counter[(vect[i] / exp) % BASE]++;
+
+    for (int i = 1; i < BASE; i++)
+        counter[i] += counter[i - 1];
+
+    for (int i = size - 1; i >= 0; i--)
+    {
+        aux[counter[(vect[i] / exp) % BASE] - 1] = vect[i];
+        counter[(vect[i] / exp) % 10]--;
+    }
+
+    for (int i = 0; i < size; i++)
+        vect[i] = aux[i];
+}
+
+void radixsort(vector<int> &vect, int size, const int BASE)
+{
+    int maxi = vect[0];
+    for (int i = 1; i < size; i++)
+        if (vect[i] > maxi)
+            maxi = vect[i];
+
+    for (int exp = 1; maxi / exp > 0; exp *= BASE)
+        counting(vect, size, exp, BASE);
 }
 
 void shellsort(vector<int> &vect, int size)
