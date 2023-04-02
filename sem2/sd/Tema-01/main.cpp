@@ -7,7 +7,7 @@
 
 using namespace std;
 
-ifstream in("test.txt");
+ifstream in("test03.txt");
 
 void counting(vector<int> &vect, int size, int exp, const int BASE);
 void radixsort(vector<int> &vect, int size, const int BASE);
@@ -15,31 +15,29 @@ void radixsort(vector<int> &vect, int size, const int BASE);
 void merge(vector<int> &vect, int low, int mid, int high); // utility function
 void mergesort(vector<int> &vect, int low, int high);      // O(nlogn) time
 
-void insertionsort(vector<int> &vect, int low, int high); //  O(n^2) time
-void timsort(vector<int> &vect, int size, const int SPLIT_SIZE);     // O(nlogn) time
+void insertionsort(vector<int> &vect, int low, int high);        //  O(n^2) time
+void timsort(vector<int> &vect, int size, const int SPLIT_SIZE); // O(nlogn) time
 
 void shellsort(vector<int> &vect, int size);
 
-vector<int> vect{18, 8, 4, 34, 10, 5, 2}, vect_sorted, vect_dummy;
+vector<int> vect, vect_sorted, vect_dummy;
 
 int main()
 {
     cout << '\n';
 
-    // vect.clear();
-
-    // in.ignore(100, '\n');
-    // int x;
-    // while(in>>x)
-    //     vect.push_back(x);
+    vect.clear();
+    in.ignore(100, '\n');
+    int x;
+    while (in >> x)
+        vect.push_back(x);
 
     vect_sorted = vect;
     auto start = chrono::high_resolution_clock::now();
     sort(vect_sorted.begin(), vect_sorted.end());
     auto finish = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(finish - start);
-    cout << "STL IntroSort:\n"
-         << duration.count() << " microseconds\n\n";
+    cout << "STL IntroSort:\n" << duration.count() << " microseconds\n\n";
 
     vect_dummy = vect;
     auto start1 = chrono::high_resolution_clock::now();
@@ -47,7 +45,7 @@ int main()
     auto finish1 = chrono::high_resolution_clock::now();
     auto duration1 = chrono::duration_cast<chrono::microseconds>(finish1 - start1);
     if (vect_sorted == vect_dummy)
-        cout << "MergeSort:\n" << duration.count() << " microseconds\n\n";
+        cout << "MergeSort:\n" << duration1.count() << " microseconds\n\n";
     else
         cout << "MergeSort failed\n\n";
 
@@ -57,19 +55,24 @@ int main()
     auto finish2 = chrono::high_resolution_clock::now();
     auto duration2 = chrono::duration_cast<chrono::microseconds>(finish2 - start2);
     if (vect_sorted == vect_dummy)
-        cout << "ShellSort:\n" << duration.count() << " microseconds\n\n";
+        cout << "ShellSort:\n" << duration2.count() << " microseconds\n\n";
     else
         cout << "ShellSort failed\n\n";
 
     vect_dummy = vect;
     auto start3 = chrono::high_resolution_clock::now();
-    insertionsort(vect_dummy, 0, vect_dummy.size() - 1);
-    auto finish3 = chrono::high_resolution_clock::now();
-    auto duration3 = chrono::duration_cast<chrono::microseconds>(finish3 - start3);
-    if (vect_sorted == vect_dummy)
-        cout << "InsertionSort:\n" << duration.count() << " microseconds\n\n";
+    if(vect_dummy.size() > 1000)
+        cout << "InsertionSort will take too much for " << vect_dummy.size() << " elements\n\n";
     else
-        cout << "InsertionSort failed\n\n";
+    {
+        insertionsort(vect_dummy, 0, vect_dummy.size() - 1);
+        auto finish3 = chrono::high_resolution_clock::now();
+        auto duration3 = chrono::duration_cast<chrono::microseconds>(finish3 - start3);
+        if (vect_sorted == vect_dummy)
+            cout << "InsertionSort:\n"<< duration3.count() << " microseconds\n\n";
+        else 
+            cout << "InsertionSort failed\n\n";
+    }
 
     vect_dummy = vect;
     auto start4 = chrono::high_resolution_clock::now();
@@ -77,7 +80,8 @@ int main()
     auto finish4 = chrono::high_resolution_clock::now();
     auto duration4 = chrono::duration_cast<chrono::microseconds>(finish4 - start4);
     if (vect_sorted == vect_dummy)
-        cout << "TimSort:\n" << duration.count() << " microseconds\n\n";
+        cout << "TimSort:\n"
+             << duration4.count() << " microseconds\n\n";
     else
         cout << "TimSort failed\n\n";
 
@@ -87,7 +91,8 @@ int main()
     auto finish5 = chrono::high_resolution_clock::now();
     auto duration5 = chrono::duration_cast<chrono::microseconds>(finish5 - start5);
     if (vect_sorted == vect_dummy)
-        cout << "RadixSort:\n" << duration.count() << " microseconds\n\n";
+        cout << "RadixSort:\n"
+             << duration5.count() << " microseconds\n\n";
     else
         cout << "RadixSort failed\n\n";
 
@@ -203,20 +208,15 @@ void insertionsort(vector<int> &vect, int low, int high)
 void timsort(vector<int> &vect, int size, const int SPLIT_SIZE)
 {
     for (int i = 0; i < size; i += SPLIT_SIZE)
-        insertionsort(vect, i, min((i + SPLIT_SIZE - 1), (size - 1)));     // check if remaining vector is less than SPLIT_SIZE
+        insertionsort(vect, i, min((i + SPLIT_SIZE - 1), (size - 1))); // check if remaining vector is less than SPLIT_SIZE
 
     // merge multiples of SPLIT_SIZE (32, 64, 128...)
     for (int seq_size = SPLIT_SIZE; seq_size < size; seq_size *= 2)
         for (int left = 0; left < size; left += 2 * seq_size)
         {
             int mid = left + seq_size - 1;
-            int right = min((left + 2 * seq_size - 1), (size - 1));     // again, check if remaining vector is less than SPLIT_SIZE
+            int right = min((left + 2 * seq_size - 1), (size - 1)); // again, check if remaining vector is less than SPLIT_SIZE
             if (mid < right)
                 merge(vect, left, mid, right);
         }
-}
-
-void introsort()
-{
-
 }
