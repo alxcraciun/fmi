@@ -69,8 +69,7 @@ for i in range(len(current_states)):
 print()
 
 ''' input.txt template
-0
-4
+0 1 4
 0 b 0 
 0 a 1
 0 a 0
@@ -78,6 +77,7 @@ print()
 1 b 2
 2 a 1 
 2 b 3
+2 a 3
 3 b 1
 3 a 4 
 4 a 4 
