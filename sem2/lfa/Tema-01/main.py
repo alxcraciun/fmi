@@ -1,7 +1,7 @@
 import sys
 f = open('input.txt')
 
-LFA = {}
+DFA = {}
 
 start_state = f.readline()
 start_state = start_state.strip()
@@ -11,9 +11,9 @@ finish_states = [elem.strip() for elem in finish_states.split()]
 
 for line in f:
     table = [elem.strip() for elem in line.split()]
-    if LFA.get(table[0]) == None:
-        LFA[table[0]] = {}
-    LFA[table[0]].update({table[1]: table[2]})
+    if DFA.get(table[0]) == None:
+        DFA[table[0]] = {}
+    DFA[table[0]].update({table[1]: table[2]})
 f.close()
 
 
@@ -24,10 +24,10 @@ current_state = start_state
 path_saver = [current_state]
 
 for letter in word:
-    if LFA[current_state].get(letter) == None:
+    if DFA[current_state].get(letter) == None:
         sys.exit("Cuvant neacceptat, stare imposibila\n")
     else:
-        current_state = LFA[current_state][letter]
+        current_state = DFA[current_state][letter]
         path_saver.append(current_state)
 
 if current_state in finish_states:
