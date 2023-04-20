@@ -27,7 +27,7 @@ I don't host any further materials in this Github Repo, but you can access this 
 ## 1st Year
 
 | Sem | Discipline                                    | C   | S   | L   | P   | EM  | Credits |
-| --- | --------------------------------------------- | --- | --- | --- | --- | --- | ------- |
+| :-- | :-------------------------------------------- | :-- | :-- | :-- | :-- | :-- | :------ |
 | I   | SA - Algebraic Structures in Computer Science | 2   | 2   | \-  | \-  | E   | 4       |
 | I   | CDI - Differential and Integral Calculus      | 3   | 2   | \-  | \-  | E   | 6       |
 | I   | LMC - Mathematical and Computational Logic    | 2   | 2   | \-  | \-  | E   | 5       |
@@ -40,7 +40,7 @@ I don't host any further materials in this Github Repo, but you can access this 
 <br>
 
 | Sem | Discipline                                 | C   | S   | L   | P   | EM  | Credits |
-| --- | ------------------------------------------ | --- | --- | --- | --- | --- | ------- |
+| :-- | :----------------------------------------- | :-- | :-- | :-- | :-- | :-- | :------ |
 | II  | GAL - Geometry and Linear Algebra          | 2   | 2   | \-  | \-  | E   | 4       |
 | II  | BD - Databases                             | 2   | \-  | 2   | \-  | E   | 5       |
 | II  | SD - Data Structures                       | 2   | 1   | 1   | \-  | E   | 5       |
