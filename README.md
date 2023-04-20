@@ -52,7 +52,6 @@ I don't host any further materials in this Github Repo, but you can access this 
 
 <br>
 
-
 ## Legend
 
 - C = Course
