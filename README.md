@@ -15,7 +15,7 @@ I don't host any further materials in this Github Repo, but you can access this 
 
 - [Wordle Game Clone (Python)](https://github.com/alxcraciun/wordle)
 - [DFA & NFA Implementation (Python)]()
-- [Minimal DFA Implementation (Python)]()
+- [DFA Minimisation (Python)](https://github.com/alxcraciun/dfa_minimisation)
 - [OOP Basics (C++)]()
 - [OOP Intermediate (C++)]()
 - [OOP Advanced (C++)]()
