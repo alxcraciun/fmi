@@ -2,51 +2,69 @@
 
 ## Content & About Me
 
-I currently study at the [University of Bucharest](https://unibuc.ro/student-ub/) (Bachelor in Computer Science 2022 - 2025, [Faculty of Mathematics and Informatics](https://fmi.unibuc.ro/)). In this repository you can find homeworks, projects and resources regarding my courses. All resources from are public, but not intended for plagiarism. If you find your homework or project in here, I do not encourage you to copy it.
+I currently study at the [University of Bucharest](https://unibuc.ro/student-ub/) (Bachelor in Computer Science 2022 - 2025, [Faculty of Mathematics and Informatics](https://fmi.unibuc.ro/)). In this repository you can find homeworks, projects and resources regarding my courses. If you find your homework or project in here, I do not encourage you to copy it.
 
-I don't host any of the PDFs in this Github Repo, but you can access this [Google Drive](https://drive.google.com/drive/folders/1dw2z7aSJL5rQVA82JrRr7rlXQqxlAQGW?usp=sharing).
+I don't host any further materials in this Github Repo, but you can access this [Onedrive](https://onedrive.live.com/?authkey=%21ADIdim6u6%5FcQOgU&id=B32B3D474907C551%2126888&cid=B32B3D474907C551).
 
-⭐｜If this repository helped you, please **star and share it** with your collegues. <br>
+⭐｜If this repository helped you, please **star and share it** with your friends. <br>
 🌐｜Also, let's connect on [Linkedin.](https://www.linkedin.com/in/alxcraciun/) 
 
-## Anul 1
+<br>
 
-| Sem | Disciplina                                                | C   | S   | L   | P   | FE  | Credite |
-| --- | --------------------------------------------------------- | --- | --- | --- | --- | --- | ------- |
-| I   | [SA - Structuri Algebrice în Informatică](./sem1/sa/)     | 2   | 2   | \-  | \-  | E   | 4       |
-| I   | [CDI - Calcul Diferențial și Integral](./sem1/cdi/)       | 3   | 2   | \-  | \-  | E   | 6       |
-| I   | [LMC - Logică Matematică și Computațională](./sem1/lmc/)  | 2   | 2   | \-  | \-  | E   | 5       |
-| I   | [PA - Programarea Algoritmilor](./sem1/pa/)               | 2   | 1   | 1   | \-  | E   | 5       |
-| I   | [ASC - Arhitectura Sistemelor de Calcul](./sem1/asc/)     | 2   | 1   | 1   | \-  | V   | 4       |
-| I   | [GCEA - Gândire Critică și Etică Academică](./sem1/gcea/) | 2   | 1   | \-  | 1   | V   | 4       |
-| I   | Competențe de bază într-o limbă străină                   | \-  | 1   | \-  | \-  | V   | 2       |
-| I   | Educație fizică\*                                         | \-  | 1   | \-  | \-  | V   | 2       |
+## Projects
+
+- [Wordle Game Clone (Python)](https://github.com/alxcraciun/wordle)
+- [DFA & NFA Implementation (Python)]()
+- [Minimal DFA Implementation (Python)]()
+- [OOP Basics (C++)]()
+- [OOP Intermediate (C++)]()
+- [OOP Advanced (C++)]()
+- [Sorting Algorithms (C++)]()
+- [Fibonacci Heap Implementation (C++)]()
 
 <br>
 
-| Sem | Disciplina                                           | C   | S   | L   | P   | FE  | Credite |
-| --- | ---------------------------------------------------- | --- | --- | --- | --- | --- | ------- |
-| II  | [GAL - Geometrie si Algebra Liniara](./sem2/ga/)     | 2   | 2   | \-  | \-  | E   | 4       |
-| II  | [BD - Baze de Date](./sem2/bd/)                      | 2   | \-  | 2   | \-  | E   | 5       |
-| II  | [SD - Structuri de Date](./sem2/sd/)                 | 2   | 1   | 1   | \-  | E   | 5       |
-| II  | [LFA - Limbaje Formale si Automate](./sem2/lfa/)     | 2   | 1   | 1   | \-  | E   | 4       |
-| II  | [POO - Programare Orientata pe Obiecte](./sem2/poo/) | 2   | 1   | 2   | \-  | V   | 4       |
-| II  | [TW - Tehnici Web](./sem2/tw/)                       | 2   | \-  | 1   | 1   | V   | 6       |
-| II  | Competențe de bază într-o limbă străină              | \-  | 1   | \-  | \-  | V   | 2       |
-| II  | Educație fizică                                      | \-  | 1   | \-  | \-  | V   | 2       |
+## 1st Year
+
+| Sem | Discipline                                    | C   | S   | L   | P   | EM  | Credits |
+| --- | --------------------------------------------- | --- | --- | --- | --- | --- | ------- |
+| I   | SA - Algebraic Structures in Computer Science | 2   | 2   | \-  | \-  | E   | 4       |
+| I   | CDI - Differential and Integral Calculus      | 3   | 2   | \-  | \-  | E   | 6       |
+| I   | LMC - Mathematical and Computational Logic    | 2   | 2   | \-  | \-  | E   | 5       |
+| I   | PA - Algorithm Programming                    | 2   | 1   | 1   | \-  | E   | 5       |
+| I   | ASC - Computer System Architecture            | 2   | 1   | 1   | \-  | V   | 4       |
+| I   | GCEA - Critical Thinking and Academic Ethics  | 2   | 1   | \-  | 1   | V   | 4       |
+| I   | Foreign Language (English)                    | \-  | 1   | \-  | \-  | V   | 2       |
+| I   | Physical Education (Table Tennis)             | \-  | 1   | \-  | \-  | V   | 2       |
 
 <br>
 
-- C - Cursuri
-- S - Seminarii
-- L - Laboratoare
-- P - Proiect
-- FE - Forma de Evaluare
-- E - Examen
-- V - Verificare
+| Sem | Discipline                                 | C   | S   | L   | P   | EM  | Credits |
+| --- | ------------------------------------------ | --- | --- | --- | --- | --- | ------- |
+| II  | GAL - Geometry and Linear Algebra          | 2   | 2   | \-  | \-  | E   | 4       |
+| II  | BD - Databases                             | 2   | \-  | 2   | \-  | E   | 5       |
+| II  | SD - Data Structures                       | 2   | 1   | 1   | \-  | E   | 5       |
+| II  | LFA - Formal Languages and Automata Theory | 2   | 1   | 1   | \-  | E   | 4       |
+| II  | POO - Object-Oriented Programming          | 2   | 1   | 2   | \-  | V   | 4       |
+| II  | TW - Web Development                       | 2   | \-  | 1   | 1   | V   | 6       |
+| II  | Foreign Language (English)                 | \-  | 1   | \-  | \-  | V   | 2       |
+| II  | Physical Education (Fitness)               | \-  | 1   | \-  | \-  | V   | 2       |
 
 <br>
 
-## Optionale
-- [Modul Psihopedagogic - Sem 1](/sem1/psiho/)
-- [Modul Psihopedagogic - Sem 2](/sem2/psiho/)
+
+## Legend
+
+- C = Course
+- S = Seminar
+- L = Laboratory
+- P = Project
+  
+- FE = Evaluation Method
+- E = Exam
+- V = Verification
+
+<br>
+
+## Optional Courses
+- Psychopedagogical Module
