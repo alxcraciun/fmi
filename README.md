@@ -14,13 +14,10 @@ I don't host any further materials in this Github Repo, but you can access this 
 ## Projects
 
 - [Wordle Game Clone (Python)](https://github.com/alxcraciun/wordle)
-- [DFA & NFA Implementation (Python)]()
+- [DFA & NFA Implementation (Python)](https://github.com/alxcraciun/dfa_nfa)
 - [DFA Minimisation (Python)](https://github.com/alxcraciun/dfa_minimisation)
-- [OOP Basics (C++)]()
-- [OOP Intermediate (C++)]()
-- [OOP Advanced (C++)]()
-- [Sorting Algorithms (C++)]()
-- [Fibonacci Heap Implementation (C++)]()
+- [OOP Basics (C++)](https://github.com/alxcraciun/oop-basics)
+- [OOP Intermediate (C++)](https://github.com/alxcraciun/oop-intermediate)
 
 <br>
 
