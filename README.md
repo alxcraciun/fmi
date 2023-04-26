@@ -14,20 +14,17 @@ I don't host any further materials in this Github Repo, but you can access this 
 ## Projects
 
 - [Wordle Game Clone (Python)](https://github.com/alxcraciun/wordle)
-- [DFA & NFA Implementation (Python)]()
-- [Minimal DFA Implementation (Python)]()
-- [OOP Basics (C++)]()
-- [OOP Intermediate (C++)]()
-- [OOP Advanced (C++)]()
-- [Sorting Algorithms (C++)]()
-- [Fibonacci Heap Implementation (C++)]()
+- [DFA & NFA Implementation (Python)](https://github.com/alxcraciun/dfa_nfa)
+- [DFA Minimisation (Python)](https://github.com/alxcraciun/dfa_minimisation)
+- [OOP Basics (C++)](https://github.com/alxcraciun/oop-basics)
+- [OOP Intermediate (C++)](https://github.com/alxcraciun/oop-intermediate)
 
 <br>
 
 ## 1st Year
 
 | Sem | Discipline                                    | C   | S   | L   | P   | EM  | Credits |
-| --- | --------------------------------------------- | --- | --- | --- | --- | --- | ------- |
+| :-- | :-------------------------------------------- | :-- | :-- | :-- | :-- | :-- | :------ |
 | I   | SA - Algebraic Structures in Computer Science | 2   | 2   | \-  | \-  | E   | 4       |
 | I   | CDI - Differential and Integral Calculus      | 3   | 2   | \-  | \-  | E   | 6       |
 | I   | LMC - Mathematical and Computational Logic    | 2   | 2   | \-  | \-  | E   | 5       |
@@ -40,7 +37,7 @@ I don't host any further materials in this Github Repo, but you can access this 
 <br>
 
 | Sem | Discipline                                 | C   | S   | L   | P   | EM  | Credits |
-| --- | ------------------------------------------ | --- | --- | --- | --- | --- | ------- |
+| :-- | :----------------------------------------- | :-- | :-- | :-- | :-- | :-- | :------ |
 | II  | GAL - Geometry and Linear Algebra          | 2   | 2   | \-  | \-  | E   | 4       |
 | II  | BD - Databases                             | 2   | \-  | 2   | \-  | E   | 5       |
 | II  | SD - Data Structures                       | 2   | 1   | 1   | \-  | E   | 5       |
