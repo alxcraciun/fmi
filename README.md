@@ -16,8 +16,14 @@ I don't host any further materials in this Github Repo, but you can access this 
 - [Wordle Game Clone (Python)](https://github.com/alxcraciun/wordle)
 - [DFA & NFA Implementation (Python)](https://github.com/alxcraciun/dfa_nfa)
 - [DFA Minimisation (Python)](https://github.com/alxcraciun/dfa_minimisation)
+- [DFA to Regular Expression (Python](https://github.com/alxcraciun/dfa_to_regex)
 - [OOP Basics (C++)](https://github.com/alxcraciun/oop-basics)
 - [OOP Intermediate (C++)](https://github.com/alxcraciun/oop-intermediate)
+- [OOP Advanced (C++]()
+- [Erasmus+ Database (SQL, Docker, Oracle Database)]()
+- [Personal Website (HTML, CSS, JS, NodeJS, ExpressJS)](https://github.com/alxcraciun/website)
+- [Fibonacci Heap Implementation (C++)](https://github.com/alxcraciun/fibonacci-heap)
+- [Data Structures Problems (C++)](https://github.com/alxcraciun/data_structures)
 
 <br>
 
